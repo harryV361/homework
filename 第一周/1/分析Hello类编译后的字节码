@@ -1,0 +1,84 @@
+Compiled from "Hello.java"
+public class com.lee.jvm.Hello {
+  public com.lee.jvm.Hello();
+    Code:
+       //从局部变量表0中装载引用类型值压入栈
+       0: aload_0
+       //调用类Hello的init方法
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       //返回void
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       //将int类型的值2压入栈
+       0: iconst_2
+       //将栈顶的int类型的值2存入局部变量表1位置中
+       1: istore_1
+       //将int类型的值5压入栈
+       2: iconst_5
+       //将栈顶的int类型的值5存入局部变量表2位置中
+       3: istore_2
+       //从局部变量表1位置中装载int类型的值压入栈
+       4: iload_1
+       //从局部变量表2位置中装载int类型的值压入栈
+       5: iload_2
+       //调用静态的add方法
+       6: invokestatic  #2                  // Method add:(II)J
+       //将栈顶中long类型的值存入局部变量表3位置中
+       9: lstore_3
+       //从局部变量表1位置中装载int类型的值压入栈
+      10: iload_1
+      //从局部变量表2位置中装载int类型的值压入栈
+      11: iload_2
+      //调用静态的subtract方法
+      12: invokestatic  #3                  // Method subtract:(II)I
+      //将栈顶中int类型的值存入局部变量表5位置中
+      15: istore        5
+      //从局部变量表1位置中装载int类型的值压入栈
+      17: iload_1
+      //从局部变量表2位置中装载int类型的值压入栈
+      18: iload_2
+      //调用静态的multiply方法
+      19: invokestatic  #4                  // Method multiply:(II)D
+      //将栈顶中int类型的值存入局部变量表6位置中
+      22: dstore        6
+      //从局部变量表1位置中装载int类型的值压入栈
+      24: iload_1
+      //将int类型转换成double类型
+      25: i2d
+      //从局部变量表2位置中装载int类型的值压入栈
+      26: iload_2
+      //调用静态的divide方法
+      27: invokestatic  #5                  // Method divide:(DI)D
+      //将栈顶中double类型的值存入局部变量表8位置中
+      30: dstore        8
+      //将0值压入栈
+      32: iconst_0
+      //将栈顶的0存入局部变量表10位置中
+      33: istore        10
+      //从局部变量表10位置中取值压入栈栈中
+      35: iload         10
+      //带符号的值10扩展成int值压入栈
+      37: bipush        10
+      //如果栈顶两个int类型值，前面的值大于后面的值，则跳转到62行
+      39: if_icmpge     62
+      //从局部变量表10位置中取值压入栈栈中
+      42: iload         10
+      //将int类型的值5压入栈中
+      44: iconst_5
+      //如果栈顶两个int类型值，前面的值大于后面的值，则跳转到56行
+      45: if_icmple     56
+      //获取静态值System.out
+      48: getstatic     #6                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      //从局部变量表10位置中取值压入栈栈中
+      51: iload         10
+      //调用println方法
+      53: invokevirtual #7                  // Method java/io/PrintStream.println:(I)V
+      //将局部变量表10位置中的值+1
+      56: iinc          10, 1
+      //跳转到35行
+      59: goto          35
+      //返回void
+      62: return
+}
