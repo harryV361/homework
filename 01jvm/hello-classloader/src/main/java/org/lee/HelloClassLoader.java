@@ -1,10 +1,9 @@
-package com.lee.jvm;
+package org.lee;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 /**
  * @author lizhe
@@ -21,19 +20,21 @@ public class HelloClassLoader extends ClassLoader {
                 for (Method declaredMethod : declaredMethods) {
                     declaredMethod.invoke(o);
                 }
-
             }
-        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | InvocationTargetException e) {
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    protected Class<?> findClass(String name) throws ClassNotFoundException {
+    protected Class<?> findClass(String name) {
 
+        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(name + ".xlass");
 
         try {
-            final byte[] bytes = Files.readAllBytes(Paths.get("/Users/harry/Documents/Hello.xlass"));
+            int length = inputStream.available();
+            byte[] bytes = new byte[length];
+            inputStream.read(bytes);
             for (int i = 0; i < bytes.length; i++) {
                 bytes[i] = (byte) (255 - bytes[i]);
             }
